@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { genreateNumber } from './utils';
+import logo from './assets/logo_dlt.png';
+import './app.css';
 
 function App() {
+  const [blueBalls, setBlueBalls] = useState([]);
+  const [redBalls, setRedBalls] = useState([]);
+
+  // 生成蓝球
+  const generateBlueBalls = () => genreateNumber(35, 5);
+
+  // 生成红区
+  const generateRedBalls = () => genreateNumber(12, 2);
+
+  const generateCombin = () => {
+    setBlueBalls(generateBlueBalls());
+    setRedBalls(generateRedBalls())
+  }
+
+  useEffect(() => {
+    generateCombin();
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <img src={logo} className="app-logo" alt="logo" />
+      <div className="app-ball">
+        <div className='app-ball-blue'>
+          {
+            blueBalls.map(ele => <span key={ele}>{ele}</span>)
+          }
+        </div>
+        <div className='app-ball-red'>
+          {
+            redBalls.map(ele => <span key={ele}>{ele}</span>)
+          }
+        </div>
+      </div>
+      <button className='app-generate' onClick={generateCombin}>获取中奖号码</button>
     </div>
   );
 }

@@ -1,20 +1,5 @@
-.App {
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,14 +9,70 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-@keyframes App-logo-spin {
+.app-ball {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.app-ball-blue {
+  margin-right: 12px;
+}
+
+.app-ball-blue,
+.app-ball-red {
+  display: flex;
+}
+
+.app-ball-blue>span,
+.app-ball-red>span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #1a60bb;
+  /*#1a60bb*/
+}
+
+.app-ball-red>span {
+  background-color: red;
+  /*#1a60bb*/
+}
+
+.app-ball-blue>span:not(:last-child),
+.app-ball-red>span:not(:last-child) {
+  margin-right: 12px;
+}
+
+.app-generate {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 0px;
+  background-color: #e7484c;
+  color: #fff;
+}
+
+.app-generate:hover {
+  background-color: #e6767a;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app-logo {
+    animation: app-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes app-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
